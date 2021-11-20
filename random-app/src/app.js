@@ -1,10 +1,19 @@
 const { board } = window.miro;
 
 document.getElementById("button").onclick=async function(){
-  var min=parseInt(document.getElementById("min_num").value);
-  var max=parseInt(document.getElementById("max_num").value);
+  var min_elem = document.getElementById("min_num")
+  var min=parseInt(min_elem.value);
+  if (min != min) { // min is NaN, like when there's no input
+    min = parseInt(min_elem.placeholder)
+    // maybe enable this?
+    // min_elem.value = min_elem.placeholder
+  }
+  var max_elem = document.getElementById("max_num")
+  var max=parseInt(max_elem.value);
+  if (max != max) {
+    max = parseInt(max_elem.placeholder)
+  }
   var result;
-  console.log("aaaaaaaaaaaa")
   const data={
     "jsonrpc": "2.0",
     "method": "generateIntegers",
