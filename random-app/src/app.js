@@ -1,6 +1,6 @@
 const { board } = window.miro;
 
-document.getElementById("button").onclick=async function(){
+document.getElementById("randomize-button").onclick=async function(){
   var min_elem = document.getElementById("min_num")
   var min=parseInt(min_elem.value);
   if (min != min) { // min is NaN, like when there's no input
@@ -31,7 +31,9 @@ document.getElementById("button").onclick=async function(){
   try {
     result= await fetch("https://api.random.org/json-rpc/4/invoke",{method:"POST",headers,body:JSON.stringify(data)})
     console.log(JSON.stringify(data))
-    document.getElementById("result").value=await JSON.parse(await result.text()).result.random.data[0]
+    result_elem = document.getElementById("randomize-result")
+    result_elem.value=await JSON.parse(await result.text()).result.random.data[0]
+    result_elem.classList.remove("hidden")
   }catch(e){
     console.log(e)
   }

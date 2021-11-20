@@ -65,6 +65,17 @@ div.set-num {
   padding-left: 5px;
 }
 
+#randomize-button {
+  width: auto;
+  /* font-weight: bold; */
+}
+#randomize-result {
+  width: 50%;
+}
+.hidden {
+  display: none;
+}
+
 /* .button {
   text-decoration: none;
 } */
