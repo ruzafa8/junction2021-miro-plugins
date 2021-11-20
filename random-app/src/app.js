@@ -1,13 +1,5 @@
 const { board } = window.miro;
 
-async function init() {
-  const stickyNote = await board.createStickyNote({
-    content: "Hello, World!",
-  });
-
-  await board.viewport.zoomTo(stickyNote);
-}
-
 document.getElementById("button").onclick=async function(){
   var min=parseInt(document.getElementById("min_num").value);
   var max=parseInt(document.getElementById("max_num").value);
@@ -35,5 +27,3 @@ document.getElementById("button").onclick=async function(){
     console.log(e)
   }
 }
-
-init();
