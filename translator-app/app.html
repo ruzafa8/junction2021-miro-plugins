@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mirotone@2.0.0/dist/styles.css" />
+    <link rel="stylesheet" href="/src/assets/style.css" />
+    <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: column;">
+      <textarea id="text" rows="10" cols="30">The cat was playing in the garden.</textarea>
+      <button id="button" style="width: 100%; height: 20px;">translate</button>
+      <textarea id="result" rows="10" cols="30"></textarea>
+    </div>
+    <script src="/src/insecure_env.js"></script>
+    <script src="/src/app.js"></script>
+  </body>
+</html>
