@@ -17,8 +17,9 @@ body {
   height: 100%;
   line-height: 1.5;
   margin: 0;
-  padding: 2rem;
+  padding: 1.5rem;
   padding-top: 0px;
+
 }
 
 .container {
@@ -38,7 +39,7 @@ img {
   flex-direction: column;
 }
 
-.plugin-info {
+.feature-info {
   font-weight: bold;
 }
 
@@ -68,6 +69,7 @@ div.set-num {
 #randomize-button {
   width: auto;
   /* font-weight: bold; */
+  margin-bottom: 0;
 }
 #randomize-result {
   width: 50%;
@@ -126,9 +128,11 @@ input[type=number] {
 }
 .side-a {
   z-index: 100;
+  background-color: var(--blue800);
 }
 .side-b {
   transform: rotateY(-180deg);
+  background-color: var(--indigo700);
 }
 
 #coin.heads {
@@ -153,10 +157,16 @@ input[type=number] {
   to { -webkit-transform: rotateY(1980deg); -moz-transform: rotateY(1980deg); transform: rotateY(1980deg); }
 }
 
-.container-result {
-  display: flex;
-  margin-top: 20px;
+/* from https://www.mirotone.xyz/docs#gallery-template */
+.template {
+  /* max-width: 320px; */
+  margin: var(--space-xsmall) 0 0 0;
+  border: 2px solid var(--indigo300);
+  border-radius: var(--border-radius-medium);
+  padding: var(--space-medium);
+  background: var(--white);
 }
-.container-result > p {
-  padding-right:15px;
+
+.side-a {
+
 }
