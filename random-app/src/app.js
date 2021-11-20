@@ -35,6 +35,8 @@ document.getElementById("randomize-button").onclick=async function(){
     const res = await JSON.parse(await result.text()).result.random.data[0];
     result_elem.value=res
     result_elem.classList.remove("hidden")
+
+    var createSticker = document.getElementById("to-sticker-checkbox").checked
     if (createSticker) {
       const position = await board.viewport.get();
       board.createStickyNote({
@@ -47,11 +49,6 @@ document.getElementById("randomize-button").onclick=async function(){
   }catch(e){
     console.log(e)
   }
-}
-
-let createSticker = true;
-document.getElementById("randomize-result").onclick = ({checked}) =>  {
-  createSticker = checked;
 }
 
 const nextRandom = size => {
