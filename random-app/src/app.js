@@ -32,8 +32,18 @@ document.getElementById("randomize-button").onclick=async function(){
     result= await fetch("https://api.random.org/json-rpc/4/invoke",{method:"POST",headers,body:JSON.stringify(data)})
     console.log(JSON.stringify(data))
     result_elem = document.getElementById("randomize-result")
-    result_elem.value=await JSON.parse(await result.text()).result.random.data[0]
+    const res = await JSON.parse(await result.text()).result.random.data[0];
+    result_elem.value=res
     result_elem.classList.remove("hidden")
+    if (createSticker) {
+      const position = await board.viewport.get();
+      board.createStickyNote({
+        content: `<p>${res}</p>`,
+        x:position.x + (position.width)/2,
+        y:position.y + (position.height)/2
+      })
+      
+    }
   }catch(e){
     console.log(e)
   }
@@ -41,7 +51,6 @@ document.getElementById("randomize-button").onclick=async function(){
 
 document.getElementById("coin").onclick = async function () {
   var result;
-  console.log("aaaaaaaaaaaa");
   const data = {
     "jsonrpc": "2.0",
     "method": "generateIntegers",
@@ -68,4 +77,9 @@ document.getElementById("coin").onclick = async function () {
   } catch (e) {
     console.log(e)
   }
+}
+
+let createSticker = true;
+document.getElementById("randomize-result").onclick = ({checked}) =>  {
+  createSticker = checked;
 }
