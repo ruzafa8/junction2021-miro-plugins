@@ -11,13 +11,8 @@
     <div style="display: flex; flex-direction: column;">
       <textarea id="text" rows="5" cols="30">The cat was playing in the garden.</textarea>
       <button id="button" style="width: 100%; height: 20px;">translate</button>
-      <textarea id="result" rows="5" cols="30"></textarea>
-      <select name="select" id="languageSelector">
-        <option value="EN" selected>English</option>
-        <option value="ES">Spanish</option>
-        <option value="FI">Finnish</option>
-        <option value="ZH">Chinese</option>
-      </select>
+      <output id="result" style="width: 100%;"></output>
+      <select name="select" id="languageSelector"></select>
     </div>
     <script src="/src/insecure_env.js"></script>
     <script src="/src/app.js"></script>
