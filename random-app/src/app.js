@@ -42,39 +42,9 @@ document.getElementById("randomize-button").onclick=async function(){
         x:position.x + (position.width)/2,
         y:position.y + (position.height)/2
       })
-      
+
     }
   }catch(e){
-    console.log(e)
-  }
-}
-
-document.getElementById("coin").onclick = async function () {
-  var result;
-  const data = {
-    "jsonrpc": "2.0",
-    "method": "generateIntegers",
-    "params": {
-      "apiKey": env.RANDOM_ORG_API_KEY,
-      "n": 1,
-      "min": 0,
-      "max": 1
-    },
-    "id": 42
-  }
-  const headers = {
-    'Content-Type': 'application/json'
-  }
-  try {
-    result = await fetch("https://api.random.org/json-rpc/4/invoke", { method: "POST", headers, body: JSON.stringify(data) })
-    document.getElementById("coin").classList = "";
-    coin = await JSON.parse(await result.text()).result.random.data[0]
-    if (coin == 0) {
-      document.getElementById("coin").classList = 'heads'
-    } else {
-      document.getElementById("coin").classList = 'tails'
-    }
-  } catch (e) {
     console.log(e)
   }
 }
@@ -82,4 +52,31 @@ document.getElementById("coin").onclick = async function () {
 let createSticker = true;
 document.getElementById("randomize-result").onclick = ({checked}) =>  {
   createSticker = checked;
+}
+
+const nextRandom = size => {
+  const data = {
+    "jsonrpc": "2.0", "method": "generateIntegers",
+    "params": {
+      "apiKey": env.RANDOM_ORG_API_KEY,
+      "n": 1, "min": 0, "max": size - 1
+    }, "id": 42
+  }
+  const headers = {
+    'Content-Type': 'application/json'
+  }
+  return fetch("https://api.random.org/json-rpc/4/invoke", {
+    method: "POST", headers, body: JSON.stringify(data)
+  }).then(res => res.text()).then(JSON.parse).then(res => res.result.random.data[0]).then(parseInt)
+
+}
+
+const randomItem = list => nextRandom(list.length).then(int => list[int]);
+
+document.getElementById("sticky-selector-button").onclick = () => {
+  board.getSelection().then(async items => {
+    const stickyNotes = items.filter(item => item.type === 'sticky_note');
+    const randomSticker = await randomItem(stickyNotes)
+    board.viewport.zoomTo(randomSticker)
+  })
 }

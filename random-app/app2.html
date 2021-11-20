@@ -8,19 +8,38 @@
       href="https://unpkg.com/mirotone@2.0.0/dist/styles.css"
     />
     <link rel="stylesheet" href="/src/assets/style.css" />
+    <link rel="stylesheet" href="/src/assets/dice.css" />
     <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
   </head>
   <body>
-    <div style="display: flex;
-    flex-direction: row;">
-        <a style="margin-right: 10px;" href="app.html">generate number</a>
-        <a href="#">choose a random selected sticky note</a>
-        <a href="app4.html">dice</a>
-    </div>
-    <div style="display: flex;flex-direction: column;">
-      <p style="font-weight: bold;">Select various sticky notes and press the button to choose a random one</p>
-      <button id="button">randomize</button>
-
+    <div class="plugin-panel scrollable-container">
+      <div class="tabs">
+        <div class="tabs-header-list">
+          <div tabindex="0" class="tab tab-active">
+            <a style="margin-right: 10px;" href="app.html">random selectors</a>
+          </div>
+          <div tabindex="0" class="tab tab-active">
+            <a href="#">coin & dice</a>
+          </div>
+        </div>
+      </div>
+      <div class="cs1 ce12 template">
+        <div style="display: flex;flex-direction: column;">
+          <p class="feature-info">Click to flip</p>
+          <div id="coin">
+            <div class="side-a"></div>
+            <div class="side-b"></div>
+          </div>
+        </div>
+      </div>
+      <div class="cs1 ce12 template" id="dice-container">
+        <div style="display: flex;flex-direction: column;">
+          <p style="font-weight: bold;">Click to throw dice</p>
+          <button class="button button-small button-primary" id="but">TRHOW</button>
+          <div id="dice" style="display: flex; justify-content: center; margin-top: 25px; ">
+          </div>
+        </div>
+      </div>
     </div>
     <script src="src/insecure_env.js"></script>
     <script src="src/app2.js"></script>
