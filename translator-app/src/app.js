@@ -5,10 +5,17 @@ const performTranslation = text => {
   fetch(`https://api-free.deepl.com/v2/translate?auth_key=${env.DEEPL_API_KEY}&text=${text}&target_lang=${language}`,{method:"POST"})
     .then(res => res.text())
     .then(JSON.parse)
-    .then(res => {
-      document.getElementById("result").value = res.translations[0].text;
+    .then(({translations}) => translations[0])
+    .then(({text, detected_source_language}) => {
+      // with PT and EN doesn't work well, because the are stored as PT-BR / PT-PT and EN-GB / EN-US
+      const detectedLanguage = detected_source_language == "PT" ? {name:"Portuguese"} :
+        detected_source_language == "EN" ? {name:"English"} :  getCountryByCode(detected_source_language);
+
+      document.getElementById("detectedLanguage").innerHTML = detectedLanguage ? `From ${detectedLanguage.name} (detected)` : "";
+      document.getElementById("result").innerHTML = text;
     }).catch(console.error)
 }
+
 document.getElementById("button").onclick = () => { 
   const text = document.getElementById("text").value.replace(/ /g,"%20")
   performTranslation(text);
@@ -16,10 +23,9 @@ document.getElementById("button").onclick = () => {
 
 document.getElementById("items").onclick = () => {
   board.getSelection().then(items => {
-    const stickyNotes = items.filter((item) => item.type === 'sticky_note')
-    if (stickyNotes.length > 0){
-      const con = stickyNotes[0].content.replace("<p>","").replace("</p>","");
-      performTranslation(con);
+    if (items.length > 0){
+      const con = items[0].content;
+      if (con) performTranslation(con.replace("<p>","").replace("</p>",""));
     }
   })
 }
@@ -48,5 +54,7 @@ const setLanguages = languages => {
   });
   select.replaceChildren(...children);
 }
+
+const getCountryByCode = code => supportedLanguages.find(({language}) => language.includes(code))
 
 retrieveLanguage();
