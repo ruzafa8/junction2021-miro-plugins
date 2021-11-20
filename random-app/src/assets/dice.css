@@ -8,7 +8,7 @@
 }
 .dice {
   padding: 4px;
-  background-color: rgb(22, 6, 248);
+  background-color: rgba(66, 98, 255, 1);
   width: 104px;
   height: 104px;
   border-radius: 10%;
@@ -19,7 +19,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color:white;
+  background-color:rgba(232, 236, 255, 1);
 }
 
 .second-face{
