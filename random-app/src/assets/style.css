@@ -18,6 +18,7 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 2rem;
+  padding-top: 0px;
 }
 
 .container {
@@ -45,28 +46,28 @@ div.set-num {
   display: flex;
   align-items: center;
 }
-.set-num > p {
+.set-num > label {
   padding-right: 15px;
 }
 #min_num, #max_num {
   width: 50%;
-  padding: 12px 0px;
+  /* padding: 12px 0; */
   margin: 8px 0;
-  box-sizing: border-box;
-  border: 3px solid rgb(14, 0, 0);
+  /* box-sizing: border-box; */
+  /* border: 3px solid rgb(14, 0, 0); */
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  outline: none;
-  border-radius:5px ;
+  /* outline: none; */
+  /* border-radius:5px ; */
   padding-left: 8px;
 }
 #max_num {
   padding-left: 5px;
 }
 
-.button {
+/* .button {
   text-decoration: none;
-}
+} */
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
