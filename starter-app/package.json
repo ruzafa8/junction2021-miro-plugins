@@ -1,0 +1,14 @@
+{
+  "name": "miro-starter-app",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "prettier": {},
+  "devDependencies": {
+    "vite": "2.5.0",
+    "vite-plugin-mkcert": "1.5.1"
+  }
+}
