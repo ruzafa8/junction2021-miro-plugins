@@ -17,7 +17,7 @@ document.getElementById("button").onclick=async function(){
     "jsonrpc": "2.0",
     "method": "generateIntegers",
     "params": {
-        "apiKey":"",
+        "apiKey": env.RANDOM_ORG_API_KEY,
         "n":1,
         "min":min,
         "max":max
