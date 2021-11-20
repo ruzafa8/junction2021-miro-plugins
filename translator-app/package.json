@@ -1,5 +1,5 @@
 {
-  "name": "miro-starter-app",
+  "name": "miro-translator-app",
   "version": "0.0.1",
   "scripts": {
     "start": "vite",
