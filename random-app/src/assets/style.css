@@ -1,0 +1,184 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  background-color: #eee;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+}
+
+body {
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.container {
+  max-width: 580px;
+  margin: 0 auto;
+  background-color: var(--indigo50);
+  padding: var(--space-xxxlarge);
+  border-radius: var(--border-radius-xlarge);
+}
+
+img {
+  max-width: 100%;
+}
+
+.plugin-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-info {
+  font-weight: bold;
+}
+
+div.set-num {
+  display: flex;
+  align-items: center;
+}
+.set-num > label {
+  padding-right: 15px;
+}
+#min_num, #max_num {
+  width: 50%;
+  /* padding: 12px 0; */
+  margin: 8px 0;
+  /* box-sizing: border-box; */
+  /* border: 3px solid rgb(14, 0, 0); */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* outline: none; */
+  /* border-radius:5px ; */
+  padding-left: 8px;
+}
+#max_num {
+  padding-left: 5px;
+}
+
+#randomize-button {
+  width: auto;
+  /* font-weight: bold; */
+  margin-bottom: 0;
+}
+#randomize-result {
+  width: 50%;
+}
+.hidden {
+  display: none;
+}
+
+/* .button {
+  text-decoration: none;
+} */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#coin {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+#coin div {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+     -moz-box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+          box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+}
+.side-a {
+  background-color: #bb0000;
+}
+.side-b {
+  background-color: #3e3e3e;
+}
+
+#coin {
+  transition: -webkit-transform 1s ease-in;
+  transform-style: preserve-3d;
+}
+#coin div {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.side-a {
+  z-index: 100;
+  background-color: var(--blue800);
+}
+.side-b {
+  transform: rotateY(-180deg);
+  background-color: var(--indigo700);
+}
+
+#coin.heads {
+  -webkit-animation: flipHeads 3s ease-out forwards;
+  -moz-animation: flipHeads 3s ease-out forwards;
+    -o-animation: flipHeads 3s ease-out forwards;
+       animation: flipHeads 3s ease-out forwards;
+}
+#coin.tails {
+  -webkit-animation: flipTails 3s ease-out forwards;
+  -moz-animation: flipTails 3s ease-out forwards;
+    -o-animation: flipTails 3s ease-out forwards;
+       animation: flipTails 3s ease-out forwards;
+}
+
+@keyframes flipHeads {
+  from { -webkit-transform: rotateY(0); -moz-transform: rotateY(0); transform: rotateY(0); }
+  to { -webkit-transform: rotateY(1800deg); -moz-transform: rotateY(1800deg); transform: rotateY(1800deg); }
+}
+@keyframes flipTails {
+  from { -webkit-transform: rotateY(0); -moz-transform: rotateY(0); transform: rotateY(0); }
+  to { -webkit-transform: rotateY(1980deg); -moz-transform: rotateY(1980deg); transform: rotateY(1980deg); }
+}
+
+/* from https://www.mirotone.xyz/docs#gallery-template */
+.template {
+  /* max-width: 320px; */
+  margin: var(--space-xsmall) 0 0 0;
+  border: 2px solid var(--indigo300);
+  border-radius: var(--border-radius-medium);
+  padding: var(--space-medium);
+  background: var(--white);
+}
+
+.scrollable-container {
+  height: 100%;
+  overflow-y: auto;
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+#dice-container {
+  height: 270px;
+}
+
+.tabs a {
+  text-decoration: none;
+}
+
+.tabs a:visited {
+  color: inherit;
+}

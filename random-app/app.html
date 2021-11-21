@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/mirotone@2.0.0/dist/styles.css"
+    />
+    <link rel="stylesheet" href="/src/assets/style.css" />
+    <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+  </head>
+  <body>
+    <div class="plugin-panel scrollable-container">
+      <div class="tabs">
+        <div class="tabs-header-list">
+          <div tabindex="0" class="tab tab-active">
+            <a style="margin-right: 10px;" href="#">random selectors</a>
+          </div>
+          <div tabindex="0" class="tab tab-active">
+            <a href="app2.html">coin & dice</a>
+          </div>
+        </div>
+      </div>
+      <div class="cs1 ce12 grid">
+        <div class="cs1 ce12 template" id="container-random-number">
+          <p class="feature-info">Gives a random number in a interval</p>
+          <div class="grid">
+            <label class="label cs1 ce6">min</label>
+            <label class="label cs7 ce12">max</label>
+          </div>
+          <div style="display: flex;">
+            <input style="margin-right: 6px;" class="input input-small" id="min_num" type="number" placeholder="0" />
+            <input class="input input-small" id="max_num" type="number" placeholder="10" />
+          </div>
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <button class="button button-small button-primary" id="randomize-button">randomize</button>
+            <label style="margin: 0px;" class="toggle"><input id="to-sticker-checkbox" type="checkbox" tabindex="0" checked=""><span>put in sticker</span></label>
+          </div>
+          <output style="margin-top: 10px; width: 100%;" class="input input-small hidden" id="randomize-result" readonly="True" />
+        </div>
+        <div class="cs1 ce12 template">
+          <div style="display: flex;flex-direction: column;">
+            <p class="feature-info">Select various sticky notes and press the button to choose a random one</p>
+            <button class="button button-small button-primary" id="sticky-selector-button">randomize</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/insecure_env.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+
+</html>
