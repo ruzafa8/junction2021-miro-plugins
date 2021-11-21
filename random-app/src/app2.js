@@ -48,7 +48,11 @@ document.getElementById("but").onclick=async function(){
   try {
     results = await fetch("https://api.random.org/json-rpc/4/invoke",{method:"POST",headers,body:JSON.stringify(data)})
     dices=await JSON.parse(await results.text()).result.random.data
-    for(let dice in dices) {
+    console.log(dices)
+    for(let i=0;i<dices.length;i++) {
+      
+      dice=dices[i]
+      console.log(dice)
       if(dice==1){
         document.getElementById('dice').innerHTML = '<div class="dice first-face"><span class="dot"></span></div>';
       }else if(dice==2){
