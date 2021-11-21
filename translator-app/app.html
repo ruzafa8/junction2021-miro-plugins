@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mirotone@2.0.0/dist/styles.css" />
+    <link rel="stylesheet" href="/src/assets/style.css" />
+    <script src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+  </head>
+  <body style="padding-top: 0px;">
+    <div class="form-group" style="display: flex; flex-direction: column;">
+      <output class="cs1 ce4 label" id="detectedLanguage"></output>
+      <textarea class="textarea" id="text" rows="4" placeholder="Introduce the text to translate" style="margin-bottom: 10px;"></textarea>
+      <div class="grid" style="margin-bottom: 10px;">
+        <button class="button button-primary cs1 ce5" id="button" style="margin: 0px;">translate</button>
+        <select class="cs6 ce12 select" name="select" id="languageSelector"></select>
+      </div>
+      <textarea readonly id="result" class="textarea" rows="4" style="margin-bottom: 10px;"></textarea>
+      <button style="margin-bottom: 5px;" class="button button-secondary" id="items">Select item and translate</button>
+      <p style="text-align: center; font-size: 12px;">powered by DeepL</p>
+    </div>
+    <script src="/src/insecure_env.js"></script>
+    <script src="/src/app.js"></script>
+  </body>
+</html>
