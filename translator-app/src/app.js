@@ -23,7 +23,9 @@ document.getElementById("button").onclick = () => {
 
 document.getElementById("items").onclick = () => {
   board.getSelection().then(items => {
+    console.log(items)
     if (items.length > 0){
+      console.log(items[0])
       const con = items[0].content;
       if (con) performTranslation(con.replace("<p>","").replace("</p>",""));
     }
