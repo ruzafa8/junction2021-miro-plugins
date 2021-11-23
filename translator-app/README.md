@@ -2,9 +2,9 @@
 
 ## Requirements
 
-You need an authentication key for [DeepL's API](https://www.deepl.com/pro-api?cta=header-pro-api).
+You need an authentication key for [DeepL's API](https://www.deepl.com/pro-api).
 
-Create a file named `src/insecure_env.js` containing the key:
+Create a file `src/insecure_env.js` with this content:
 
 ```js
 const env = {
@@ -12,6 +12,6 @@ const env = {
 }
 ```
 
-## Build, run
+## Build
 
-See [the parent README](../README.md).
+Just follow the steps in the [Miro Web SDK's Hello World](https://miro-ea.readme.io/docs/build-your-first-hello-world-app), using this project instead of the example one it says to download.
