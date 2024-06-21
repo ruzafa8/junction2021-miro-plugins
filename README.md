@@ -6,6 +6,7 @@ We tackled the challenge with a couple of plugins. An integration with [DeepL's 
 
 Find how to build each plugin on its own readme.
 
+
 ## Screenshots
 
 ![translator-1](./images/translator-1.png)
